@@ -1,0 +1,5 @@
+uint8 aris_req_status
+---
+uint8 aris_material
+uint8 aris_source
+uint8 aris_destination

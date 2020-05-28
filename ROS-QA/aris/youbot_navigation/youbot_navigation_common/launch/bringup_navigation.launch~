@@ -1,0 +1,15 @@
+
+<!-- Launch file to brin up all essentioal nodes for navigation with obstagle avoidance.
+This scrip doe not start any SLAM algorithm.
+-->
+
+<launch>
+	<include file="$(find youbot_navigation_local)/launch/move_base_local.launch" />
+	<include file="$(find youbot_driver_ros_interface)/launch/youbot_driver.launch" />
+        <include file="$(find youbot_navigation_common)/launch/base_front_hokuyo_node.launch" />
+	<!--<include file="$(find youbot_driver_ros_interface)/launch/youbot_joint_state_publisher.launch" />-->
+	<include file="$(find youbot_navigation_global)/launch/amcl.launch" />
+	<node pkg="map_server" type="map_server" name="loaded_map" 
+	args="/home/youbot/aris_test1.yaml" />
+</launch>
+

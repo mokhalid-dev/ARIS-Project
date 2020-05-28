@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="port1" default="/dev/ttyUSB1"/>
+    <arg name="port2" default="/dev/ttyACM0"/>
+    <arg name="status" default="0"/>
+    <include file="$(find aris_bringup)/launch/testBot.launch" />
+    <!--
+        node for firebase server
+    -->
+    
+    <node pkg="rosserial_python" name="serial_node1" type="serial_node.py" output="screen">
+        <param name="port" value="$(arg port1)"/>
+            </node>
+
+    <!--
+        node for firebase client
+    -->
+    <!--
+    <node pkg="aris_firebase_arduino" name="firebaseServiceClient" type="firebaseServiceClient" output="screen" launch-prefix="xterm -e">
+        <param name="argv" value="$(arg status)"/>
+            </node>
+    -->
+    <!--
+        node for arduino
+    -->
+    
+    
+    <node pkg="rosserial_python" name="serial_node2" type="serial_node.py" output="screen">
+        <param name="port" value="$(arg port2)"/>
+            </node>
+
+    <!--
+        node for arduino subscriber
+    -->
+    <node pkg="aris_firebase_arduino" name="arduinoSubscriber" type="arduinoSubscriber" output="screen" launch-prefix="xterm -e"/>
+
+</launch>

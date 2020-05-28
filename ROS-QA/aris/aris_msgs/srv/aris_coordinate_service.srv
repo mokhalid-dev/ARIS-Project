@@ -1,0 +1,6 @@
+uint8 aris_data_request
+---
+float32 aris_source_x_coord
+float32 aris_source_y_coord
+float32 aris_destination_x_coord
+float32 aris_destination_y_coord

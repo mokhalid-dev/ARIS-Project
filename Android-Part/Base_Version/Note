@@ -1,0 +1,1 @@
+Base version of ARIS project Android Application which uploads the user request details to the firebase server if the application is connected ONLY with eduroam network.
